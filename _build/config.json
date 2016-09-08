@@ -1,0 +1,14 @@
+{
+  "name": "SuperBoxFontawesome",
+  "lowCaseName": "superboxfontawesome",
+  "description": "Select FontAwesome Icons with a SuperBoxSelect",
+  "author": "Thomas Jakobi",
+  "version": "1.0.0",
+  "package": {
+  },
+  "build": {
+    "readme": "docs/readme.txt",
+    "license": "docs/license.txt",
+    "changelog": "docs/changelog.txt"
+  }
+}

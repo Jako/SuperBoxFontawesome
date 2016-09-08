@@ -1,0 +1,28 @@
+Changelog for SuperBoxSelect
+============================
+
+- 2.1.0
+    - The superboxselect is not restricted anymore to list only resources
+    - Add own selectable types
+    - Two default types (resources, users)
+- 2.0.0
+    - Input options for template variables
+    - Pagination of the superboxselect
+    - Maximum number of selectable resources
+    - Lexicon
+    - Complete refactored code
+    - Strictly separate the extra folders from the MODX core
+
+- 1.0.1-pl2
+    - Fix fetch resource bug
+- 1.0.1-pl1
+    - Fix height component to display properly multiple rows
+- 1.0.1-rc2
+    - Fix installation when manager directory name was changed
+- 1.0.1-rc1
+    - Refactor for MODx Revo 2.2
+- 1.0.0-rc1
+    - Packaged for Revo
+    - Use ExtJS superboxselect type included in MODx Revolution
+- 1.0.0-b1
+    - Initial Version
