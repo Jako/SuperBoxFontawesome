@@ -11,9 +11,9 @@ SuperBoxSelect MODX Extra (https://modx.com/extras/package/superboxselect).
 - Create a SuperBoxSelect template variable and change the Package setting in the Input Type to `superboxfontawesome`.
 - Save and reload the template variable and set the Type to `FontAwesome Icons`
 
-### Authors
+### Author
 
-- Thomas Jakobi <thomas.jakobi@partout.info> (since version 2.0.0)
+- Thomas Jakobi <thomas.jakobi@partout.info>
 
 ### Github Repository
 
