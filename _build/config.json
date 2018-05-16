@@ -3,8 +3,25 @@
   "lowCaseName": "superboxfontawesome",
   "description": "Select FontAwesome Icons with a SuperBoxSelect",
   "author": "Thomas Jakobi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "package": {
+    "systemSettings": [
+      {
+        "key": "fontawesomeUrl",
+        "area": "system",
+        "value": "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/fa-4/scss/_icons.scss"
+      },
+      {
+        "key": "fontawesomePrefix",
+        "area": "system",
+        "value": "fa-"
+      },
+      {
+        "key": "excludeClasses",
+        "area": "system",
+        "value": "ul,li"
+      }
+    ]
   },
   "build": {
     "readme": "docs/readme.txt",

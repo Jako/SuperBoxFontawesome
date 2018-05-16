@@ -10,10 +10,9 @@ class SuperboxselectFontawesomeGetListProcessor extends modProcessor
 {
     public function process()
     {
-        $modx =& $this->modx;
         $scriptProperties = $this->getProperties();
 
-        $fontawesomeUrl = $this->modx->getOption('superboxselect.fontawesomeUrl', $scriptProperties, 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/scss/_icons.scss');
+        $fontawesomeUrl = $this->modx->getOption('superboxselect.fontawesomeUrl', $scriptProperties, 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/fa-4/scss/_icons.scss');
         $fontawesomePrefix = $this->modx->getOption('superboxselect.fontawesomePrefix', $scriptProperties, 'fa-');
         $excludeClasses = $this->modx->getOption('superboxselect.excludeClasses', $scriptProperties, 'ul,li');
         $excludeClasses = ($excludeClasses) ? array_filter(array_map('trim', explode(',', $excludeClasses))) : array();
