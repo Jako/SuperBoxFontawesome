@@ -1,4 +1,0 @@
-- 1.0.1
-    - Modified FontAwesome Url
-- 1.0.0
-    - Initial Version

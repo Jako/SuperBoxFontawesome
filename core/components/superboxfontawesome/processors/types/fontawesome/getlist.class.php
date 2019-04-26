@@ -57,6 +57,9 @@ class SuperboxselectFontawesomeGetListProcessor extends modProcessor
 
         // One icon selected?
         if ($id) {
+            if (substr($id, 0, strlen($fontawesomePrefix)) == $fontawesomePrefix) {
+                $id = substr($id, strlen($fontawesomePrefix));
+            }
             if (isset($faIcons[$id])) {
                 return $this->outputArray(array($faIcons[$id]));
             } else {
@@ -66,8 +69,15 @@ class SuperboxselectFontawesomeGetListProcessor extends modProcessor
 
         // Filter the icons by a query
         $query = $this->getProperty('query');
-        if ($query) {
-            $faIcons = array_filter($faIcons, array($this, 'filterIcon'));
+        if (!empty($query)) {
+            $valuesqry = $this->getProperty('valuesqry');
+            if (!empty($valuesqry)) {
+                $this->setProperty('query', explode('|', $query));
+                $faIcons = array_filter($faIcons, array($this, 'filterIcon'));
+            } else {
+                $this->setProperty('query', array($query));
+                $faIcons = array_filter($faIcons, array($this, 'filterIcon'));
+            }
         }
 
         $total = count($faIcons);
@@ -84,7 +94,7 @@ class SuperboxselectFontawesomeGetListProcessor extends modProcessor
 
     protected function filterIcon($var)
     {
-        return (strpos($var['id'], $this->getProperty('query')) !== false);
+        return (in_array($var['id'], $this->getProperty('query')) !== false);
     }
 }
 

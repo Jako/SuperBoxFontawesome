@@ -3,7 +3,7 @@
   "lowCaseName": "superboxfontawesome",
   "description": "Select FontAwesome Icons with a SuperBoxSelect",
   "author": "Thomas Jakobi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "package": {
     "systemSettings": [
       {
@@ -24,8 +24,8 @@
     ]
   },
   "build": {
-    "readme": "docs/readme.txt",
-    "license": "docs/license.txt",
-    "changelog": "docs/changelog.txt"
+    "readme": "docs/readme.md",
+    "license": "docs/license.md",
+    "changelog": "docs/changelog.md"
   }
 }
