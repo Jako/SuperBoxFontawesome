@@ -13,7 +13,7 @@ SuperBoxSelect MODX Extra (https://modx.com/extras/package/superboxselect).
 
 ### Author
 
-- Thomas Jakobi <thomas.jakobi@partout.info>
+- Thomas Jakobi <office@treehillstudio.com>
 
 ### Github Repository
 
