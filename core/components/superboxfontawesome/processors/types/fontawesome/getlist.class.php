@@ -4,7 +4,7 @@
  * Get list processor for SuperBoxSelect TV.
  *
  * @package superboxselect
- * @subpackage processor
+ * @subpackage processors
  */
 class SuperboxselectFontawesomeGetListProcessor extends modProcessor
 {
