@@ -1,33 +1,26 @@
 <?php
-
 /**
- * Options processor for SuperBoxSelect TV.
+ * Fontawesome options processor
  *
- * @package superboxselect
+ * @package superboxfontawesome
  * @subpackage processors
  */
-class SuperboxselectFontawesomeOptionsProcessor extends modProcessor
+
+use TreehillStudio\SuperBoxFontawesome\Processors\OptionsProcessor;
+
+class SuperboxselectFontawesomeOptionsProcessor extends OptionsProcessor
 {
+    public $inputOptionType = 'fontawesome';
+    public $fieldTpl = '<i class="icon icon-{title}"></i> {title}';
+
     /**
-     * @var array $languageTopics
+     * {@inheritDoc}
+     * @return bool
      */
-    public $languageTopics = array('superboxselect:default');
-
-    public function process()
+    public function initialize()
     {
-        $option = $this->getProperty('option');
-
-        $result = '';
-        if (method_exists($this, 'get' . ucfirst($option))) {
-            $method = 'get' . ucfirst($option);
-            $result = $this->$method();
-        }
-        return $result;
-    }
-
-    public function getFieldTpl()
-    {
-        return '<i class="icon icon-{title}"></i> {title}';
+        $this->modx->lexicon('superboxfontawesome.fontawesome');
+        return parent::initialize();
     }
 }
 

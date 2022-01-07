@@ -1,20 +1,25 @@
 # SuperBoxFontawesome
-## Custom Select Type for SuperBoxSelect
+
+Select FontAwesome Icons in SuperBoxSelect
+
+## Features
 
 This MODX Extra displays a selectable list of FontAwesome Icons in the 
 SuperBoxSelect MODX Extra (https://modx.com/extras/package/superboxselect). 
 
-### Usage
+## Usage
 
-- Install the latest [Package](https://github.com/Jako/SuperBoxFontawesome/tree/master/_packages) via MODX Package Manager. 
-- Switch the SuperBoxSelect system setting `superboxselect.advanced` to `Yes`
-- Create a SuperBoxSelect template variable and change the Package setting in the Input Type to `superboxfontawesome`.
-- Save the template variable, reload the manager page and set the Type to `FontAwesome Icons` afterwards (see the screencast on https://github.com/Jako/SuperBoxFontawesome/issues/1#issuecomment-389067374).
+- Install the Package via MODX Package Manager. 
+- Edit a SuperBoxSelect template variable and the Type `FontAwesome Icons` is available.
 
-### Author
+## Author
 
 - Thomas Jakobi <office@treehillstudio.com>
 
-### Github Repository
+## Documentation
 
-https://github.com/jako/superboxfontawesome
+For more information please read the [documentation](https://jako.github.io/SuperBoxFontawesome/).
+
+## License
+
+The project is licensed under the [GPLv2 license](https://github.com/Jako/SuperBoxFontawesome/blob/master/core/components/superboxselect/docs/license.md).

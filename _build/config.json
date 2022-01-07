@@ -3,8 +3,20 @@
   "lowCaseName": "superboxfontawesome",
   "description": "Select FontAwesome Icons with a SuperBoxSelect",
   "author": "Thomas Jakobi",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "package": {
+    "elements": {
+      "plugins": [
+        {
+          "name": "SuperBoxFontawesome",
+          "file": "superboxfontawesome.plugin.php",
+          "description": "SuperBoxFontawesome plugin",
+          "events": [
+            "OnSuperboxselectTypeOptions"
+          ]
+        }
+      ]
+    },
     "systemSettings": [
       {
         "key": "fontawesomeUrl",
@@ -26,7 +38,7 @@
   "dependencies": [
     {
       "name": "php",
-      "version": ">=5.6"
+      "version": ">=7.2"
     },
     {
       "name": "modx",

@@ -1,29 +1,40 @@
 <?php
-
 /**
- * Get list processor for SuperBoxSelect TV.
+ * Fontawesome get list processor
  *
- * @package superboxselect
+ * @package superboxfontawesome
  * @subpackage processors
  */
-class SuperboxselectFontawesomeGetListProcessor extends modProcessor
+
+use TreehillStudio\SuperBoxFontawesome\Processors\Processor;
+
+class SuperboxselectFontawesomeGetListProcessor extends Processor
 {
     public function process()
     {
-        $scriptProperties = $this->getProperties();
+        // Get Properties
+        $tvid = $this->getProperty('tvid', 0);
+        /** @var modTemplateVar $tv */
+        $tv = $this->modx->getObject('modTemplateVar', $tvid);
+        if ($tv) {
+            $tvProperties = $tv->get('input_properties');
+        } else {
+            $tvProperties = [];
+            $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Invalid template variable ID!', '', 'SuperBoxSelect');
+        }
 
-        $fontawesomeUrl = $this->modx->getOption('superboxselect.fontawesomeUrl', $scriptProperties, 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/fa-4/scss/_icons.scss');
-        $fontawesomePrefix = $this->modx->getOption('superboxselect.fontawesomePrefix', $scriptProperties, 'fa-');
-        $excludeClasses = $this->modx->getOption('superboxselect.excludeClasses', $scriptProperties, 'ul,li');
-        $excludeClasses = ($excludeClasses) ? array_filter(array_map('trim', explode(',', $excludeClasses))) : array();
+        $fontawesomeUrl = $this->modx->getOption('fontawesomeUrl', $tvProperties, $this->superboxfontawesome->getOption('fontawesomeUrl', [], 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/fa-4/scss/_icons.scss'), true);
+        $fontawesomePrefix = $this->modx->getOption('fontawesomePrefix', $tvProperties, $this->superboxfontawesome->getOption('fontawesomePrefix', [], 'fa-'), true);
+        $excludeClasses = $this->modx->getOption('excludeClasses', $tvProperties, $this->superboxfontawesome->getOption('excludeClasses', [], 'ul,li'), true);
+        $excludeClasses = ($excludeClasses) ? array_filter(array_map('trim', explode(',', $excludeClasses))) : [];
 
         $limit = $this->getProperty('limit', 10);
         $start = $this->getProperty('start', 0);
         $id = $this->getProperty('id');
 
-        $cacheKey = $this->modx->getOption('cacheKey', $scriptProperties, 'superboxselect.fontawesome');
-        $provider = $this->modx->cacheManager->getCacheProvider('default');
-        $faIcons = $provider->get($cacheKey);
+        $cacheKey = $this->superboxfontawesome->getOption('cacheKey', [], 'superboxfontawesome.fontawesome');
+        $cacheManager = $this->modx->getCacheManager();
+        $faIcons = $cacheManager->get($cacheKey);
         if (!$faIcons) {
             // Get the FontAwesome source file
             $ch = curl_init();
@@ -35,16 +46,16 @@ class SuperboxselectFontawesomeGetListProcessor extends modProcessor
             if (!$css) {
                 return $this->failureLog('Could not download the FontAwesome scss source!');
             }
-            $faIcons = array();
+            $faIcons = [];
             $regex = '/\.#\{\$fa-css-prefix\}-([\w-]*):before/';
-            $matches = array();
+            $matches = [];
             if (preg_match_all($regex, $css, $matches)) {
                 $icons = array_diff($matches[1], $excludeClasses);
                 foreach ($icons as $icon) {
-                    $faIcons[$icon] = array(
+                    $faIcons[$icon] = [
                         'id' => $fontawesomePrefix . $icon,
                         'title' => $icon
-                    );
+                    ];
                 }
             } else {
                 return $this->failureLog('Could not find the icons in the FontAwesome scss!');
@@ -52,7 +63,7 @@ class SuperboxselectFontawesomeGetListProcessor extends modProcessor
 
             ksort($faIcons, SORT_NATURAL);
 
-            $provider->set($cacheKey, $faIcons, 0);
+            $cacheManager->set($cacheKey, $faIcons);
         }
 
         // One icon selected?
@@ -61,7 +72,7 @@ class SuperboxselectFontawesomeGetListProcessor extends modProcessor
                 $id = substr($id, strlen($fontawesomePrefix));
             }
             if (isset($faIcons[$id])) {
-                return $this->outputArray(array($faIcons[$id]));
+                return $this->outputArray([$faIcons[$id]]);
             } else {
                 return $this->failureLog('Could not find the icon in the FontAwesome scss!');
             }
@@ -73,22 +84,22 @@ class SuperboxselectFontawesomeGetListProcessor extends modProcessor
             $valuesqry = $this->getProperty('valuesqry');
             if (!empty($valuesqry)) {
                 $this->setProperty('query', explode('|', $query));
-                $faIcons = array_filter($faIcons, array($this, 'filterIcon'));
             } else {
-                $this->setProperty('query', array($query));
-                $faIcons = array_filter($faIcons, array($this, 'filterIcon'));
+                $this->setProperty('query', [$query]);
             }
+            $faIcons = array_filter($faIcons, [$this, 'filterIcon']);
         }
 
         $total = count($faIcons);
-        $output = array_splice(array_values($faIcons), $start, $limit);
+        $faIcons = array_values($faIcons);
+        $output = array_splice($faIcons, $start, $limit);
 
         return $this->outputArray($output, $total);
     }
 
     protected function failureLog($msg = '', $object = null)
     {
-        $this->modx->log(modX::LOG_LEVEL_ERROR, $msg, '', 'superboxselect.fontawesome');
+        $this->modx->log(xPDO::LOG_LEVEL_ERROR, $msg, '', 'SuperBoxfontawesome');
         return parent::failure($msg, $object);
     }
 

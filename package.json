@@ -1,0 +1,26 @@
+{
+  "name": "superboxfontawesome",
+  "description": "Advanced listbox/resource list custom template variable type",
+  "author": "Thomas Jakobi <office@treehillstudio.com>",
+  "private": true,
+  "devDependencies": {
+    "date-format": "^3.0.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^2.0.9",
+    "gulp-replace": "^1.1.3",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1",
+    "uglify-js": "^3.14.5"
+  },
+  "dependencies": {
+    "sortablejs": "^1.14.0"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead",
+    "ie >= 10"
+  ]
+}
