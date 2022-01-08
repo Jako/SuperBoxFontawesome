@@ -6,7 +6,7 @@ This MODX Extra displays a selectable list of FontAwesome Icons in the
 ### Requirements
 
 * MODX Revolution 2.6+
-* PHP v5.6+
+* PHP 7.2+
 
 ### Features
 
