@@ -1,9 +1,7 @@
 # SuperBoxFontawesome
 
-SuperBoxFontawesome is an Advanced 'Listbox' / 'Resource List' custom template
-variable for MODX Revolution based on the SuperBoxFontawesome ExtJS Plugin. The
-template variable displays selected items (i.e. resources or other supported
-types) as labelled boxes within the form field.
+This MODX Extra displays a selectable list of FontAwesome Icons in the
+[SuperBoxSelect MODX Extra](https://jako.github.io/SuperBoxSelect/).
 
 ### Requirements
 
