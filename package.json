@@ -1,6 +1,6 @@
 {
   "name": "superboxfontawesome",
-  "description": "Advanced listbox/resource list custom template variable type",
+  "description": "Select FontAwesome Icons in SuperBoxSelect custom template variable",
   "author": "Thomas Jakobi <office@treehillstudio.com>",
   "private": true,
   "devDependencies": {
