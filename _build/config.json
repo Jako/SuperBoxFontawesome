@@ -9,8 +9,8 @@
       "plugins": [
         {
           "name": "SuperBoxFontawesome",
+          "description": "Select FontAwesome Icons in SuperBoxSelect custom template variable",
           "file": "superboxfontawesome.plugin.php",
-          "description": "SuperBoxFontawesome plugin",
           "events": [
             "OnSuperboxselectTypeOptions"
           ]
