@@ -32,7 +32,7 @@ abstract class Plugin
     public function __construct($modx, &$scriptProperties)
     {
         $this->scriptProperties = &$scriptProperties;
-        $this->modx = &$modx;
+        $this->modx =& $modx;
         $corePath = $this->modx->getOption('superboxfontawesome.core_path', null, $this->modx->getOption('core_path') . 'components/superboxfontawesome/');
         $this->superboxfontawesome = $this->modx->getService('superboxfontawesome', 'SuperBoxFontawesome', $corePath . 'model/superboxfontawesome/', [
             'core_path' => $corePath
