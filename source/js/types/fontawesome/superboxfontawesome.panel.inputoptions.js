@@ -8,6 +8,7 @@
 SuperBoxSelect.panel.InputOptionsFontawesome = function (config) {
     config = config || {};
 
+    this.ident = 'input-options-fontawesome' + Ext.id();
     this.options = config.options;
     this.params = config.params;
 
@@ -34,7 +35,7 @@ SuperBoxSelect.panel.InputOptionsFontawesome = function (config) {
                         fieldLabel: _('superboxfontawesome.fontawesomeUrl'),
                         description: MODx.expandHelp ? '' : _('superboxfontawesome.fontawesomeUrl_desc'),
                         name: 'inopt_fontawesomeUrl',
-                        id: 'inopt_fontawesomeUrl',
+                        id: this.ident + 'inopt_fontawesomeUrl',
                         value: this.params.fontawesomeUrl || '',
                         anchor: '100%',
                         listeners: {
@@ -58,7 +59,7 @@ SuperBoxSelect.panel.InputOptionsFontawesome = function (config) {
                         fieldLabel: _('superboxfontawesome.fontawesomePrefix'),
                         description: MODx.expandHelp ? '' : _('superboxfontawesome.fontawesomePrefix_desc'),
                         name: 'inopt_fontawesomePrefix',
-                        id: 'inopt_fontawesomePrefix',
+                        id: this.ident + 'inopt_fontawesomePrefix',
                         value: this.params.fontawesomePrefix || '',
                         anchor: '100%',
                         listeners: {
@@ -82,7 +83,7 @@ SuperBoxSelect.panel.InputOptionsFontawesome = function (config) {
                         fieldLabel: _('superboxfontawesome.excludeClasses'),
                         description: MODx.expandHelp ? '' : _('superboxfontawesome.excludeClasses_desc'),
                         name: 'inopt_excludeClasses',
-                        id: 'inopt_excludeClasses',
+                        id: this.ident + 'inopt_excludeClasses',
                         value: this.params.excludeClasses || '',
                         anchor: '100%',
                         listeners: {

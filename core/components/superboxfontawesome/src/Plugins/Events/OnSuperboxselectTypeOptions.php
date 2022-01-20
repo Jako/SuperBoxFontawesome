@@ -71,20 +71,14 @@ class OnSuperboxselectTypeOptions extends Plugin
         $typeOptions = [];
         foreach ($internalTypes as $internalType) {
             $response = $this->modx->runProcessor('types/' . $internalType . '/options', [
-                'option' => 'fieldTpl',
+                'option' => 'renderOptions',
+                'useRequest' => $params['useRequest'],
+                'params' => $params
             ], [
                 'processors_path' => $this->superboxfontawesome->getOption('processorsPath')
             ]);
             if (empty($response->errors)) {
-                $typeOptions[$internalType] = [
-                    'fieldTpl' => (!empty($params['fieldTpl'])) ? $params['fieldTpl'] : $response->response,
-                    'connector' => $this->superboxfontawesome->getOption('connectorUrl'),
-                    'baseParams' => [
-                        'fontawesomeUrl' => (!empty($params['fontawesomeUrl'])) ? $params['fontawesomeUrl'] : $this->superboxfontawesome->getOption('fontawesomeUrl'),
-                        'fontawesomePrefix' => (!empty($params['fontawesomePrefix'])) ? $params['fontawesomePrefix'] : $this->superboxfontawesome->getOption('fontawesomePrefix'),
-                        'excludeClasses' => (!empty($params['excludeClasses'])) ? $params['excludeClasses'] : $this->superboxfontawesome->getOption('excludeClasses')
-                    ]
-                ];
+                $typeOptions[$internalType] = $response->response;
             }
         }
         $this->modx->event->output(serialize($typeOptions));

@@ -31,13 +31,27 @@ class OptionsProcessor extends Processor
     }
 
     /**
-     * Get the field template.
+     * Get the render options.
      *
-     * @return string
+     * @return array
      */
-    public function getFieldTpl()
+    public function getRenderOptions()
     {
-        return $this->fieldTpl;
+        $params = $this->getProperty('params');
+        $renderOptions = [
+            'connector' => $this->superboxfontawesome->getOption('connectorUrl')
+        ];
+        $renderOptions = array_merge_recursive($renderOptions, $this->useRenderOptions($params));
+        return $renderOptions;
+    }
+
+    /**
+     * @param $params
+     * @return array
+     */
+    public function useRenderOptions($params)
+    {
+        return [];
     }
 
     /**
