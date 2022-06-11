@@ -8,7 +8,7 @@
 SuperBoxSelect.panel.InputOptionsFontawesome = function (config) {
     config = config || {};
 
-    this.ident = 'input-options-fontawesome' + Ext.id();
+    this.ident = 'input-options-fontawesome-' + Ext.id();
     this.options = config.options;
     this.params = config.params;
 
