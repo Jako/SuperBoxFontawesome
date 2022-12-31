@@ -28,7 +28,7 @@ pkg.dependencies.forEach(function (dependency, index) {
     }
 });
 
-gulp.task('scripts-fontawesome', function () {
+const scriptsFontawesome = function () {
     return gulp.src([
         'source/js/types/fontawesome/superboxfontawesome.panel.inputoptions.js'
     ])
@@ -36,45 +36,45 @@ gulp.task('scripts-fontawesome', function () {
         .pipe(uglify())
         .pipe(header(banner + '\n', {pkg: pkg}))
         .pipe(gulp.dest('assets/components/superboxfontawesome/js/types/fontawesome/'))
-});
-gulp.task('scripts', gulp.series('scripts-fontawesome'));
+};
+gulp.task('scripts', gulp.series(scriptsFontawesome));
 
-gulp.task('bump-copyright', function () {
+const bumpCopyright = function () {
     return gulp.src([
         'core/components/superboxfontawesome/model/superboxfontawesome/superboxfontawesome.class.php',
         'core/components/superboxfontawesome/src/SuperBoxFontawesome.php'
     ], {base: './'})
         .pipe(replace(/Copyright 2016(-\d{4})? by/g, 'Copyright ' + (year > 2016 ? '2016-' : '') + year + ' by'))
         .pipe(gulp.dest('.'));
-});
-gulp.task('bump-version', function () {
+};
+const bumpVersion = function () {
     return gulp.src([
         'core/components/superboxfontawesome/src/SuperBoxFontawesome.php'
     ], {base: './'})
         .pipe(replace(/version = '\d+\.\d+\.\d+[-a-z0-9]*'/ig, 'version = \'' + pkg.version + '\''))
         .pipe(gulp.dest('.'));
-});
-gulp.task('bump-docs', function () {
+};
+const bumpDocs = function () {
     return gulp.src([
         'mkdocs.yml',
     ], {base: './'})
         .pipe(replace(/&copy; 2016(-\d{4})?/g, '&copy; ' + (year > 2016 ? '2016-' : '') + year))
         .pipe(gulp.dest('.'));
-});
-gulp.task('bump-requirements', function () {
+};
+const bumpRequirements = function () {
     return gulp.src([
         'docs/index.md',
     ], {base: './'})
         .pipe(replace(/[*-] MODX Revolution \d.\d.*/g, '* MODX Revolution ' + modxversion + '+'))
         .pipe(replace(/[*-] PHP (v)?\d.\d.*/g, '* PHP ' + phpversion + '+'))
         .pipe(gulp.dest('.'));
-});
-gulp.task('bump', gulp.series('bump-copyright', 'bump-version', 'bump-docs', 'bump-requirements'));
+};
+gulp.task('bump', gulp.series(bumpCopyright, bumpVersion, bumpDocs, bumpRequirements));
 
 gulp.task('watch', function () {
     // Watch .js files
-    gulp.watch(['source/js/**/*.js'], gulp.series('scripts-mgr'));
+    gulp.watch(['./source/js/**/*.js'], gulp.series('scripts'));
 });
 
 // Default Task
-gulp.task('default', gulp.series('bump', 'scripts-fontawesome'));
+gulp.task('default', gulp.series('bump', 'scripts'));
