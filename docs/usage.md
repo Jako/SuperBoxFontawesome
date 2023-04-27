@@ -8,4 +8,4 @@ Setting | Description | Default
 ------- | ----------- | -------
 Exclude Classes | Comma separated list of excluded FontAwesome icon css classes. | `ul,li`
 Fontawesome Prefix | Prefix for a FontAwesome icon css class. | `fa-`
-Fontawesome URL | URL for the external FontAwesome icons sass file. | `https://raw.githubusercontent.com/FortAwesome/Font-Awesome/fa-4/scss/_icons.scss`
+Fontawesome URL | URL for the external FontAwesome icons sass file. | `https://raw.githubusercontent.com/FortAwesome/Font-Awesome/4.x/scss/_icons.scss`

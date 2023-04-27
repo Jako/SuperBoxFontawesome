@@ -23,7 +23,7 @@ class SuperboxselectFontawesomeGetListProcessor extends Processor
             $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'Invalid template variable ID!', '', 'SuperBoxSelect');
         }
 
-        $fontawesomeUrl = $this->modx->getOption('fontawesomeUrl', $tvProperties, $this->superboxfontawesome->getOption('fontawesomeUrl', [], 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/fa-4/scss/_icons.scss'), true);
+        $fontawesomeUrl = $this->modx->getOption('fontawesomeUrl', $tvProperties, $this->superboxfontawesome->getOption('fontawesomeUrl', [], 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/4.x/scss/_icons.scss'), true);
         $fontawesomePrefix = $this->modx->getOption('fontawesomePrefix', $tvProperties, $this->superboxfontawesome->getOption('fontawesomePrefix', [], 'fa-'), true);
         $excludeClasses = $this->modx->getOption('excludeClasses', $tvProperties, $this->superboxfontawesome->getOption('excludeClasses', [], 'ul,li'), true);
         $excludeClasses = ($excludeClasses) ? array_filter(array_map('trim', explode(',', $excludeClasses))) : [];
