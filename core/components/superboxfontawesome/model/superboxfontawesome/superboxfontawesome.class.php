@@ -2,7 +2,7 @@
 /**
  * SuperBoxFontawesome
  *
- * Copyright 2016-2022 by Thomas Jakobi <office@treehillstudio.com>
+ * Copyright 2016-2023 by Thomas Jakobi <office@treehillstudio.com>
  *
  * @package superboxfontawesome
  * @subpackage classfile

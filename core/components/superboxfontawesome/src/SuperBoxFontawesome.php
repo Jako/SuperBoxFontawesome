@@ -2,7 +2,7 @@
 /**
  * SuperBoxFontawesome
  *
- * Copyright 2016-2022 by Thomas Jakobi <office@treehillstudio.com>
+ * Copyright 2016-2023 by Thomas Jakobi <office@treehillstudio.com>
  *
  * @package superboxfontawesome
  * @subpackage classfile
@@ -39,7 +39,7 @@ class SuperBoxFontawesome
      * The version
      * @var string $version
      */
-    public $version = '2.0.2';
+    public $version = '2.0.3';
 
     /**
      * The class options

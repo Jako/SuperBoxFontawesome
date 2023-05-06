@@ -3,7 +3,7 @@
   "lowCaseName": "superboxfontawesome",
   "description": "Select FontAwesome Icons in SuperBoxSelect custom template variable",
   "author": "Thomas Jakobi",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "package": {
     "elements": {
       "plugins": [

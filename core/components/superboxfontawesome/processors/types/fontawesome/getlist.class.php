@@ -90,11 +90,11 @@ class SuperboxselectFontawesomeGetListProcessor extends Processor
             $faIcons = array_filter($faIcons, [$this, 'filterIcon']);
         }
 
-        $total = count($faIcons);
         $faIcons = array_values($faIcons);
+        $count = count($faIcons);
         $output = array_splice($faIcons, $start, $limit);
 
-        return $this->outputArray($output, $total);
+        return $this->outputArray($output, $count);
     }
 
     protected function failureLog($msg = '', $object = null)
@@ -105,7 +105,11 @@ class SuperboxselectFontawesomeGetListProcessor extends Processor
 
     protected function filterIcon($var)
     {
-        return (in_array($var['id'], $this->getProperty('query')) !== false);
+        $success = false;
+        foreach ($this->getProperty('query') as $query) {
+            $success |= strpos($var['id'], $query) !== false;
+        }
+        return $success;
     }
 }
 
