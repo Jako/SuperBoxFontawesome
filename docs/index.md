@@ -12,3 +12,7 @@ This MODX Extra displays a selectable list of FontAwesome Icons in the
 
 * Select more than one element (i.e. resource)
 * AJAX based list (works fast with a lot of selectable items by pagination)
+
+### License
+
+The project is licensed under the [GPLv2 license](https://github.com/Jako/SuperBoxFontawesome/LICENSE.md).
