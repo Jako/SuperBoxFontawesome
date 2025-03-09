@@ -51,7 +51,7 @@ const bumpVersion = function () {
     return gulp.src([
         'core/components/superboxfontawesome/src/SuperBoxFontawesome.php'
     ], {base: './'})
-        .pipe(replace(/version = '\d+\.\d+\.\d+[-a-z0-9]*'/ig, 'version = \'' + pkg.version + '\''))
+        .pipe(replace(/version = '\d+\.\d+\.\d+-?[0-9a-z]*'/ig, 'version = \'' + pkg.version + '\''))
         .pipe(gulp.dest('.'));
 };
 const bumpDocs = function () {
