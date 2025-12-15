@@ -7,7 +7,7 @@
  */
 
 $_lang['setting_superboxfontawesome.excludeClasses'] = 'Exclude Classes';
-$_lang['setting_superboxfontawesome.excludeClasses_desc'] = 'Comma separated list of excluded FontAwesome icon css classes.';
+$_lang['setting_superboxfontawesome.excludeClasses_desc'] = 'Comma-separated list of excluded FontAwesome icon css classes.';
 $_lang['setting_superboxfontawesome.fontawesomePrefix'] = 'Fontawesome Prefix';
 $_lang['setting_superboxfontawesome.fontawesomePrefix_desc'] = 'Prefix for a FontAwesome icon css class.';
 $_lang['setting_superboxfontawesome.fontawesomeUrl'] = 'Fontawesome URL';
