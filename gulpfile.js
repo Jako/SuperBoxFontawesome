@@ -11,7 +11,7 @@ const gulp = require('gulp'),
 const banner = '/*!\n' +
     ' * <%= pkg.name %> - <%= pkg.description %>\n' +
     ' * Version: <%= pkg.version %>\n' +
-    ' * Build date: ' + format("yyyy-MM-dd", new Date()) + '\n' +
+    ' * Build date: ' + format('yyyy-MM-dd', new Date()) + '\n' +
     ' */';
 const year = new Date().getFullYear();
 
@@ -34,7 +34,7 @@ const scriptsFontawesome = function () {
     ])
         .pipe(concat('superboxfontawesome.panel.inputoptions.min.js'))
         .pipe(uglify())
-        .pipe(header(banner + '\n', {pkg: pkg}))
+        .pipe(header(banner + '\n', { pkg: pkg }))
         .pipe(gulp.dest('assets/components/superboxfontawesome/js/types/fontawesome/'))
 };
 gulp.task('scripts', gulp.series(scriptsFontawesome));
@@ -43,28 +43,28 @@ const bumpCopyright = function () {
     return gulp.src([
         'core/components/superboxfontawesome/model/superboxfontawesome/superboxfontawesome.class.php',
         'core/components/superboxfontawesome/src/SuperBoxFontawesome.php'
-    ], {base: './'})
+    ], { base: './' })
         .pipe(replace(/Copyright 2016(-\d{4})? by/g, 'Copyright ' + (year > 2016 ? '2016-' : '') + year + ' by'))
         .pipe(gulp.dest('.'));
 };
 const bumpVersion = function () {
     return gulp.src([
-        'core/components/superboxfontawesome/src/SuperBoxFontawesome.php'
-    ], {base: './'})
+        'core/components/superboxfontawesome/src/SuperBoxFontawesome.php',
+    ], { base: './' })
         .pipe(replace(/version = '\d+\.\d+\.\d+-?[0-9a-z]*'/ig, 'version = \'' + pkg.version + '\''))
         .pipe(gulp.dest('.'));
 };
 const bumpDocs = function () {
     return gulp.src([
-        'mkdocs.yml',
-    ], {base: './'})
+        'zensical.toml',
+    ], { base: './' })
         .pipe(replace(/&copy; 2016(-\d{4})?/g, '&copy; ' + (year > 2016 ? '2016-' : '') + year))
         .pipe(gulp.dest('.'));
 };
 const bumpRequirements = function () {
     return gulp.src([
         'docs/index.md',
-    ], {base: './'})
+    ], { base: './' })
         .pipe(replace(/[*-] MODX Revolution \d.\d.*/g, '* MODX Revolution ' + modxversion + '+'))
         .pipe(replace(/[*-] PHP (v)?\d.\d.*/g, '* PHP ' + phpversion + '+'))
         .pipe(gulp.dest('.'));
