@@ -1,4 +1,5 @@
 {
+  "fullname": "SuperBoxFontawesome",
   "name": "superboxfontawesome",
   "description": "Select FontAwesome Icons in SuperBoxSelect custom template variable",
   "author": "Thomas Jakobi <office@treehillstudio.com>",
@@ -16,9 +17,7 @@
     "sortablejs": "^1.15.7"
   },
   "browserslist": [
-    "last 2 version",
     "> 1%",
-    "maintained node versions",
-    "not dead"
+    "defaults"
   ]
 }

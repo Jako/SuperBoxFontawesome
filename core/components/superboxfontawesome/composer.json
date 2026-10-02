@@ -1,6 +1,7 @@
 {
   "name": "treehillstudio/superboxfontawesome",
   "description": "Select FontAwesome Icons in SuperBoxSelect custom template variable",
+  "version": "1.0.5",
   "authors": [
     {
       "name": "Thomas Jakobi",
